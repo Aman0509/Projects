@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'projectalpha.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "sql12387320",
+        'NAME': "gyBiXalO7d",
         'USER': os.environ["DB_NAME"],
         'PASSWORD': os.environ["DB_PASS"],
         'HOST': os.environ['DB_HOST'],
