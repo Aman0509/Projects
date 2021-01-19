@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        .loginclass{
+            background-color: #FF5733;
+            
+        }
+        
+        .navbar a {
+          float: right;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+          background-color: black;
+        }
+        .main{
+          background-color: blueviolet;
+          margin-bottom: 0px;
+          height: 1000px
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar" id="nacbarid">
+        <h2> section is for navbar</h2>
+    </div>
+    <div class="main"  id="mainid">
+        <div class="loginclass" id="loginclassid">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="loginerror" id="loginerrorid"> 
+                    {% if form.non_field_errors %}
+                    {% for each in form.non_field_errors %}
+                        {{ each }}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="loginform" id="loginformid">
+                    {% for fm in form %}
+                        {{ fm.label_tag }}{{ fm }}{{ fm.errors|striptags }}<br>
+                    {% endfor %}
+                </div>
+                <input type="submit" value="Login"><br>
+                <button><a href="{% url 'woodshophome:forgot_password' %}">Forgot Password</a></button> &nbsp;
+                <button><a href="{% url 'woodshophome:signup' %}">SignUp</a></button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

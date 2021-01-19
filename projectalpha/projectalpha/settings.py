@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'woodshophome.apps.WoodshophomeConfig',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,9 @@ WSGI_APPLICATION = 'projectalpha.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+
+
 
 DATABASES = {
     'default': {
