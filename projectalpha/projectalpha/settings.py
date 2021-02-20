@@ -128,4 +128,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
+AUTH_USER_MODEL = 'woodshophome.Account'
+#LOGIN_URL = 'my_app.views.sign_in'
+LOGIN_URL='/woodshophome/login'

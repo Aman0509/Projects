@@ -61,6 +61,10 @@
             font-family: inherit;
             margin: 0;
         }
+        .order-table{
+            width: 50%;
+            border: 1px;
+        }
         .navbar a:hover, .dropdown:hover .dropbtn {
             background-color: burlywood;
         }
@@ -89,14 +93,23 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        .formbox{
-            position: absolute;
-            margin-top: 100Px;
-            margin-left: 500;
-            width: 500px;
-            height: 200px;
 
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: darkgrey;
+        }
+
     </style>
 </head>
 <body>
@@ -122,36 +135,23 @@
         {% endif %}
     </div>
     <div class="main" id="mainid">
-        <div class="formbox" id="formboxid">
+        <div class="order-table" id='order-tableid'>
             <table>
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    <div class="loginerror" id="loginerrorid"> 
-                        {% if form.non_field_errors %}
-                        {% for each in form.non_field_errors %}
-                            {{ each }}
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="message" id="messageid">
-                        {% if messages %}
-                            {% for message in messages %}
-                                {{ message }}
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="loginform" id="loginformid">
-                        {% for fm in form %}
-                            <label >{{ fm.label_tag }}</label>
-                            {{ fm }}{{ fm.errors|striptags }}<br>
-                        {% endfor %}
-                    </div>
-                    <button><input type="submit" value="Login"></button><br>
-                    <button><a href="{% url 'woodshophome:forgot_password' %}">Forgot Password</a></button> &nbsp;
-                    <button><a href="{% url 'woodshophome:signup' %}">SignUp</a></button>
-                </form>
+                <tr>
+                    <th>order_item</th>
+                    <th>order_unit</th>
+                    <th>order_date</th>
+                    {% for row_data in order_info %}
+                        <tr>
+                            <td>{{ row_data.0 }}</td>
+                            <td>{{ row_data.1 }}</td>
+                            <td>{{ row_data.2 }}</td>
+                        </tr>
+                    {% endfor %}
+                </tr>
             </table>
         </div>
+        
     </div>
 </body>
 </html>

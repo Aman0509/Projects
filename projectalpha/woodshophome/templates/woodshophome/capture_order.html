@@ -89,14 +89,7 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        .formbox{
-            position: absolute;
-            margin-top: 100Px;
-            margin-left: 500;
-            width: 500px;
-            height: 200px;
 
-        }
     </style>
 </head>
 <body>
@@ -133,22 +126,21 @@
                         {% endfor %}
                         {% endif %}
                     </div>
-                    <div class="message" id="messageid">
-                        {% if messages %}
-                            {% for message in messages %}
-                                {{ message }}
-                            {% endfor %}
-                        {% endif %}
-                    </div>
                     <div class="loginform" id="loginformid">
+                        <label >Choose a Item:</label>
+                        <select name="dropdown-item">
+                            {% for each in item_name %}
+                                <option value="{{ each }}">{{ each }}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
                         {% for fm in form %}
                             <label >{{ fm.label_tag }}</label>
                             {{ fm }}{{ fm.errors|striptags }}<br>
                         {% endfor %}
+                        </select>
                     </div>
-                    <button><input type="submit" value="Login"></button><br>
-                    <button><a href="{% url 'woodshophome:forgot_password' %}">Forgot Password</a></button> &nbsp;
-                    <button><a href="{% url 'woodshophome:signup' %}">SignUp</a></button>
+                    <button><input type="submit" value="Order"></button><br>
                 </form>
             </table>
         </div>
